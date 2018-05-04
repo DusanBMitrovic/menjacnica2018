@@ -77,8 +77,6 @@ public class KontrolerGUI {
 
 			// Osvezavanje glavnog prozora
 			prikaziSveValute(mGUI.getTable());
-
-			// Zatvaranje DodajValutuGUI prozora
 			
 		} catch (Exception e1) {
 			JOptionPane.showMessageDialog(contentPane, e1.getMessage(), "Greska", JOptionPane.ERROR_MESSAGE);
@@ -98,7 +96,7 @@ public class KontrolerGUI {
 	public static void prikaziIzvrsiZamenuGUI(JTable table, JPanel contentPane) {
 		if (table.getSelectedRow() != -1) {
 			MenjacnicaTableModel model = (MenjacnicaTableModel) (table.getModel());
-			IzvrsiZamenuGUI prozor = new IzvrsiZamenuGUI(mGUI, model.vratiValutu(table.getSelectedRow()));
+			IzvrsiZamenuGUI prozor = new IzvrsiZamenuGUI( model.vratiValutu(table.getSelectedRow()));
 			prozor.setLocationRelativeTo(contentPane);
 			prozor.setVisible(true);
 		}
@@ -108,14 +106,14 @@ public class KontrolerGUI {
 
 		if (table.getSelectedRow() != -1) {
 			MenjacnicaTableModel model = (MenjacnicaTableModel) (table.getModel());
-			ObrisiKursGUI prozor = new ObrisiKursGUI(mGUI, model.vratiValutu(table.getSelectedRow()));
+			ObrisiKursGUI prozor = new ObrisiKursGUI( model.vratiValutu(table.getSelectedRow()));
 			prozor.setLocationRelativeTo(contentPane);
 			prozor.setVisible(true);
 		}
 	}
 
 	public static void prikaziDodajKursGUI(JPanel contentPane) {
-		DodajKursGUI prozor = new DodajKursGUI(mGUI);
+		DodajKursGUI prozor = new DodajKursGUI();
 		prozor.setLocationRelativeTo(contentPane);
 		prozor.setVisible(true);
 	}
